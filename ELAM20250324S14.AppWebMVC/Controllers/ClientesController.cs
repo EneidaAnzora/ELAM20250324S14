@@ -28,6 +28,8 @@ namespace ELAM20250324S14.AppWebMVC.Controllers
                 query = query.Where(s => s.Direccion.Contains(cliente.Direccion));
             if (!string.IsNullOrWhiteSpace(cliente.Telefono))
                 query = query.Where(s => s.Telefono.Contains(cliente.Telefono));
+            if (!string.IsNullOrWhiteSpace(cliente.Email))
+                query = query.Where(s => s.Email.Contains(cliente.Email));
             if (topRegistro > 0)
                 query = query.Take(topRegistro);
             return View(await query.ToListAsync());
